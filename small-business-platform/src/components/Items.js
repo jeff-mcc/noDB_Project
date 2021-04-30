@@ -8,7 +8,7 @@ class Items extends Component{
 
     render(){
         return(
-            <div>
+            <div className="items">
                 <img src={this.props.item.imageURL} alt={this.props.item.name}/>
                 <p>Name: {this.props.item.name}</p>
                  <p>Price: {this.props.item.price}</p>
