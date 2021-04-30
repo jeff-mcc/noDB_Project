@@ -15,7 +15,7 @@ class Header extends Component{
     render(){
         return(
             <header>
-                <h1>Small Store</h1>
+                <h1 className="storetitle">Small Store</h1>
                 <div className="search">
                     <input placeholder="Enter a category or name"/>
                     <button>Search</button>

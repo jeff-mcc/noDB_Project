@@ -33,7 +33,10 @@ class Dashboard extends Component{
             alert(`Some required entries have been left blank!\n\nEnter all required information before clicking the "Add Item to Inventory" button.`)
         } else{
             if(imageInput===''){
-                imageInput='https://via.placeholder.com/150'
+                imageInput='https://via.placeholder.com/200'
+            }
+            if(quantInput===''){
+                quantInput=0;
             }
             const newItem = {
                 name: nameInput,
