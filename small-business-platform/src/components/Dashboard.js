@@ -86,6 +86,9 @@ class Dashboard extends Component{
                     <option value="Electronics">Electronics</option>
                 </select></h4>
                 <button onClick={this.handleClick}>Add Item to Inventory</button>
+                <br/>
+                <br/>
+                <h3>Click on an image to Edit or Delete an item</h3>
             </div>
         )
     }

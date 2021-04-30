@@ -16,8 +16,10 @@ class Header extends Component{
         return(
             <header>
                 <h1>Small Store</h1>
-                <input placeholder="Enter a category or name"/>
-                <button>Search</button>
+                <div className="search">
+                    <input placeholder="Enter a category or name"/>
+                    <button>Search</button>
+                </div>
             </header>
         )
     }

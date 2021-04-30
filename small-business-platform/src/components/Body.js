@@ -18,13 +18,21 @@ class Body extends Component{
     render(){
         return(
             <div>
-                <h2>This is the body of the page!</h2>
-                {this.props.datArray.map(item=>{
-                    return(
-                        <Items key={item.id} item={item}/>
-                    )
-                })}
-                <Dashboard addItem={this.props.addItem}/>
+                <div className="subheader">
+                    {/* <h6>This is the body of the page!</h6> */}
+                    <div className="owner-customer">
+                        <button>Owner View</button>
+                        <button>Customer View</button>
+                    </div>
+                </div>
+                <div className="mainbody">
+                    {this.props.datArray.map(item=>{
+                        return(
+                            <Items key={item.id} className="" item= {item}/>
+                        )
+                    })}
+                    <Dashboard addItem={this.props.addItem}/>
+                </div>
             </div>
         )
     }
