@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Items from './Items'
+import Dashboard from './Dashboard'
 
 class Body extends Component{
     constructor(props){
@@ -23,6 +24,7 @@ class Body extends Component{
                         <Items item={item}/>
                     )
                 })}
+                <Dashboard addItem={this.props.addItem}/>
             </div>
         )
     }

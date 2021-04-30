@@ -46,7 +46,7 @@ class App extends Component{
     return (
       <div className="App">
         <Header />
-        <Body datArray={this.state.datArray}/>
+        <Body datArray={this.state.datArray} addItem={this.addItem}/>
         <Footer />
       </div>
     )

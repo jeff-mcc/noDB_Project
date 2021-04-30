@@ -11,9 +11,9 @@ class Items extends Component{
             <div>
                 <img src={this.props.item.imageURL} alt={this.props.item.name}/>
                 <p>Name: {this.props.item.name}</p>
-                <p>Price: {this.props.item.price}</p>
-                <p>Description: {this.props.item.description}</p>
-                <p>Available: {this.props.item.quantity}</p>
+                 <p>Price: {this.props.item.price}</p>
+                 <p>Description: {this.props.item.description}</p>
+                 <p>Available: {this.props.item.quantity}</p>
             </div>
         )
     }
