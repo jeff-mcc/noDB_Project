@@ -5,7 +5,7 @@ class Dashboard extends Component{
         super(props)
         this.state = {
             nameInput: '',
-            priceInput: null,
+            priceInput: '',
             descInput: '',
             quantInput: '',
             imageInput: '',
@@ -16,30 +16,53 @@ class Dashboard extends Component{
 
     handleInput = (target) => {
         let {value,name} = target;
-        if ((name==="catOneInput" || name==="catTwoInput") && (value==="--Pick at least 1 category--" || value==="--Second category optional--")){
+        if ((name==="catOneInput" || name==="catTwoInput") && (value==="--Pick a Category (Required)--" || value==="--Second Category (Optional)--")){
             value = '';
-        } else if(name==="priceInput"){
+        } else if(name==="priceInput" || name==="quantInput"){
             value = parseFloat(value);
             if (isNaN(value) || value===0){
-                value = null;
-                console.log(value)
+                value = '';
             } 
         }
         this.setState({[name]: value})
-        // console.log(this.state[name])
+    }
+
+    handleClick = () => {
+        let {nameInput,priceInput,descInput,quantInput,imageInput,catOneInput,catTwoInput} = this.state;
+        if (nameInput==='' || priceInput==='' || descInput==='' || catOneInput===''){
+            alert(`Some required entries have been left blank!\n\nEnter all required information before clicking the "Add Item to Inventory" button.`)
+        } else{
+            if(imageInput===''){
+                imageInput='https://via.placeholder.com/150'
+            }
+            const newItem = {
+                name: nameInput,
+                price: priceInput,
+                description: descInput,
+                quantity: quantInput,
+                imageURL: imageInput,
+                categories: {
+                    cat1: catOneInput,
+                    cat2: catTwoInput
+                }
+            }
+            // console.log(newItem)
+            this.props.addItem(newItem)
+            this.setState({nameInput: '',priceInput: '',descInput: '',quantInput: '',imageInput: '',catOneInput: '',catTwoInput: ''})
+        }
     }
 
     render(){
         return(
             <div className="dashboard">
                 <h3>Add a new item to your inventory</h3>
-                <h4>Name: <input name="nameInput" onChange={(e)=>this.handleInput(e.target)}/></h4>
-                <h4>Price: <input name="priceInput" onChange={(e)=>this.handleInput(e.target)}/></h4>
-                <h4>Description: <input name="descInput" onChange={(e)=>this.handleInput(e.target)}/></h4>
-                <h4>Starting Quantity: <input name="quantInput" onChange={(e)=>this.handleInput(e.target)}/></h4>
-                <h4>image URL: <input name="imageInput" onChange={(e)=>this.handleInput(e.target)}/></h4>
-                <h4>Category 1: <select name="catOneInput" onChange={(e)=>this.handleInput(e.target)}>
-                    <option>--Pick at least 1 category--</option>
+                <h4>Name: <input name="nameInput" value={this.state.nameInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Name (Required)"/></h4>
+                <h4>Price: <input name="priceInput" type="number" value={this.state.priceInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter a number (Required)"/></h4>
+                <h4>Description: <input name="descInput" value={this.state.descInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Description (Required)"/></h4>
+                <h4>Starting Quantity: <input name="quantInput" type="number" value={this.state.quantInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter a number (Optional)"/></h4>
+                <h4>image URL: <input name="imageInput" value={this.state.imageInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter URL (Optional)"/></h4>
+                <h4>Category 1: <select name="catOneInput" value={this.state.catOneInput} onChange={(e)=>this.handleInput(e.target)}>
+                    <option value="">--Pick a Category (Required)--</option>
                     <option value="Food">Food</option>
                     <option value="Drink">Drink</option>
                     <option value="Household Items">Household Items</option>
@@ -50,8 +73,8 @@ class Dashboard extends Component{
                     <option value="Outdoors">Outdoors</option>
                     <option value="Electronics">Electronics</option>
                 </select></h4>
-                <h4>Category 2: <select name="catTwoInput" onChange={(e)=>this.handleInput(e.target)}>
-                    <option>--Second category optional--</option>
+                <h4>Category 2: <select name="catTwoInput" value={this.state.catTwoInput} onChange={(e)=>this.handleInput(e.target)}>
+                    <option value="">--Second Category (Optional)--</option>
                     <option value="Food">Food</option>
                     <option value="Drink">Drink</option>
                     <option value="Household Items">Household Items</option>
@@ -62,10 +85,13 @@ class Dashboard extends Component{
                     <option value="Outdoors">Outdoors</option>
                     <option value="Electronics">Electronics</option>
                 </select></h4>
-                <button>Add Item to Inventory</button>
+                <button onClick={this.handleClick}>Add Item to Inventory</button>
             </div>
         )
     }
 }
 
 export default Dashboard
+
+
+//https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9va3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60

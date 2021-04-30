@@ -21,7 +21,7 @@ class Body extends Component{
                 <h2>This is the body of the page!</h2>
                 {this.props.datArray.map(item=>{
                     return(
-                        <Items item={item}/>
+                        <Items key={item.id} item={item}/>
                     )
                 })}
                 <Dashboard addItem={this.props.addItem}/>
