@@ -55,7 +55,7 @@ module.exports = {
         inventory[index].available = avail;
         inventory[index].quantity = quantity;
         inventory[index].salePrice = salePrice;
-        inventory[index].sale = salePrice===null ? false : true;
-        res.status(200).send(movies)
+        inventory[index].sale = salePrice===null ? false : inventory[index].price<salePrice ? false : true;
+        res.status(200).send(inventory)
     }
 }
