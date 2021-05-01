@@ -56,9 +56,9 @@ class Dashboard extends Component{
     }
 
     render(){
-        return(
+        return this.props.toggle ? (
             <div className="dashboard">
-                <h2>Add a new item to your inventory</h2>
+                <h2 className="dashTitle">Add a new item to your inventory</h2>
                 <h5>Name: <input name="nameInput" value={this.state.nameInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Name (Required)"/></h5>
                 <h5>Price: <input name="priceInput" type="number" value={this.state.priceInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter a number (Required)"/></h5>
                 <h5>Description: <input name="descInput" value={this.state.descInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Description (Required)"/></h5>
@@ -88,10 +88,15 @@ class Dashboard extends Component{
                     <option value="Outdoors">Outdoors</option>
                     <option value="Electronics">Electronics</option>
                 </select></h5>
-                <button onClick={this.handleClick}>Add Item to Inventory</button>
+                <button id="additem" onClick={this.handleClick}>Add Item to Inventory</button>
                 <br/>
-                <br/>
+                {/* <br/> */}
                 <h3>Click on an image to Edit or Delete an item</h3>
+            </div>
+        ) : (
+            <div className="dashboard">
+                <h2 className="dashTitle">Shopping Cart</h2>
+                <h3>Click on an image to add that item to your cart</h3>
             </div>
         )
     }

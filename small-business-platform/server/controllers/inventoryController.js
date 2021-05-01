@@ -155,7 +155,21 @@ let id = 11;
 
 module.exports = {
     getItems: (req,res)=>{
-        res.status(200).send(inventory)
+        let {search} = req.query;
+        let filtInventory = inventory.filter(e=>{
+            const name = e.name.toLowerCase();
+            const cat1 = e.categories.cat1.toLowerCase();
+            const cat2 = e.categories.cat2.toLowerCase();
+            if (search===undefined){
+                return true
+            } else{
+                search = search.toLowerCase();
+                if (name.includes(search) || cat1.includes(search) || cat2.includes(search)){
+                    return true
+                }
+            } 
+        })
+        res.status(200).send(filtInventory)
     },
     addItem: (req,res)=>{
         const {name,price,quantity,description,imageURL,categories} = req.body;
@@ -177,8 +191,8 @@ module.exports = {
         res.status(200).send(inventory)
     },
     deleteItem: (req,res)=>{
-        const idx = +req.params.id;
-        inventory = inventory.filter(e=>e.id!==idx)
+        const {id} = req.params;
+        inventory = inventory.filter(e=>e.id!== +id)
         res.status(200).send(inventory)
     },
     editItem: (req,res)=>{
@@ -192,5 +206,11 @@ module.exports = {
         inventory[index].salePrice = salePrice;
         inventory[index].sale = salePrice===null ? false : inventory[index].price<salePrice ? false : true;
         res.status(200).send(inventory)
-    }
+    },
+    // getSearch: (req,res)=>{
+    //     console.log(req.query.name)
+    //     let {name} = req.query;
+    //     inventory = inventory.filter(e=>e.name.includes(name))
+    //     res.status(200).send(inventory)
+    // }
 }

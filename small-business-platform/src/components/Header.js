@@ -1,15 +1,19 @@
 import {Component} from 'react'
 
 class Header extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             searchInput: ''
         }
     }
 
-    handleInput = () => {
-        //eventually will handle the input to be set on state as searchInput
+    handleInput = (value) => {
+        this.setState({searchInput: value})
+    }
+
+    handleClick = () => {
+        this.props.searchItem(this.state.searchInput)
     }
 
     render(){
@@ -17,8 +21,8 @@ class Header extends Component{
             <header>
                 <h1 className="storetitle">S m a l l &nbsp; S t o r e</h1>
                 <div className="search">
-                    <input placeholder="Enter a category or name"/>
-                    <button>Search</button>
+                    <input placeholder="Enter a category or name" onChange={e=>this.handleInput(e.target.value)}/>
+                    <button onClick={this.handleClick}>Search</button>
                 </div>
             </header>
         )

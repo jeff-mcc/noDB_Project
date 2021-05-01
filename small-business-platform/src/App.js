@@ -42,10 +42,16 @@ class App extends Component{
       .catch(err=>console.log(err))
   }
 
+  searchItem = (search) => {
+    axios.get(`/smallbusiness/store?search=${search}`)
+      .then(res=>this.setState({datArray: res.data}))
+      .catch(err=>console.log(err))
+  }
+
   render(){
     return (
       <div className="App">
-        <Header />
+        <Header searchItem={this.searchItem}/>
         <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem} editItem={this.editItem}/>
         <Footer />
       </div>
