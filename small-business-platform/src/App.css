@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   min-height: 100%;
+  /* overflow-x: hidden; */
   /* display: flex;
   flex-direction: column;
   justify-content: space-between; */
@@ -57,6 +58,7 @@ footer {
 }
 
 .submain{
+  /* overflow-x: hidden; */
   position: absolute;
   top: 80px;
   z-index: 1;
@@ -64,14 +66,16 @@ footer {
 
 .subheader{
   background-color: aquamarine;
+  /* width: 100vw; */
   position:sticky;
   top: 80px;
-  /* right: 0; */
+  /* left: 0; */
   display: flex;
   justify-content: flex-end;
 }
 
 .owner-customer{
+  margin-right: 30px;
   display: flex;
   align-items: center;
 }
@@ -80,12 +84,13 @@ footer {
   /* position: relative; */
   /* top: 101px; */
   /* left: 0; */
+  margin-bottom: 80px;
   display: flex;
   flex-direction: row;
 }
 
 .allitems{
-  width: 60vw;
+  max-width: 60vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -106,12 +111,12 @@ footer {
 }
 
 .dashboard{
-  width: 40vw;
+  max-width: 40vw;
 }
 
 .image{
   /* width: 200px; */
-  height: auto;
+  max-height: 200px;
 }
 
 .iteminfo{
