@@ -5,7 +5,8 @@ class Items extends Component{
     constructor(props){
         super(props)
         this.state = {
-            toggle: false
+            toggle: false,
+            // buyArray: []
         }
     }
 
@@ -35,7 +36,12 @@ class Items extends Component{
                 if (quant<0){
                     alert('No remaining inventory is available to purchase')
                 } else{
-                    this.props.editItem(this.props.item.id,quant,0)
+                    if (this.props.item.sale===true){
+                        this.props.editItem(this.props.item.id,quant,this.props.item.salePrice)
+                    } else{
+                        this.props.editItem(this.props.item.id,quant,0)
+                    }
+                    this.props.addToCart(this.props.item)
                 }
             }
         }

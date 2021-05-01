@@ -49,6 +49,7 @@ class App extends Component{
   }
 
   render(){
+    // console.log(this.state.datArray)
     return (
       <div className="App">
         <Header searchItem={this.searchItem}/>

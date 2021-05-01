@@ -218,3 +218,22 @@ h5{
   /* padding-top: 3px; */
   font-size: 0.9em;
 }
+
+.cartImage{
+  height: 40px;
+}
+
+.cartShow{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartElement{
+  margin: 0 5px;
+}
+
+.subtotal{
+  font-size: 0.9em;
+}

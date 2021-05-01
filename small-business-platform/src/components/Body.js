@@ -7,7 +7,8 @@ class Body extends Component{
         super(props)
         this.state = {
             toggle: true,
-            datArray: []
+            datArray: [],
+            cartArray: []
         }
     }
 
@@ -17,6 +18,25 @@ class Body extends Component{
 
     customerToggle = () => {
         this.setState({toggle: false})
+    }
+
+    addToCart = (obj) => {
+        obj = {
+            ...obj,
+            purchased: 1
+        }
+        let index = this.state.cartArray.findIndex(e=>e.id===obj.id)
+        if (index===-1){
+            const newObj = [...this.state.cartArray,obj]
+            this.setState({cartArray: newObj})
+            // console.log(newObj)
+        } else{
+            obj.purchased += this.state.cartArray[index].purchased
+            let newObj = [...this.state.cartArray]
+            newObj[index].purchased = obj.purchased
+            this.setState({cartArray: newObj})
+            // console.log(newObj)
+        }
     }
 
     render(){
@@ -33,11 +53,11 @@ class Body extends Component{
                     <div className="allitems">
                         {this.props.datArray.map(item=>{
                             return(
-                                <Items key={item.id} item= {item} deleteItem={this.props.deleteItem} editItem={this.props.editItem} toggle={this.state.toggle}/>
+                                <Items key={item.id} item= {item} deleteItem={this.props.deleteItem} editItem={this.props.editItem} toggle={this.state.toggle} addToCart={this.addToCart}/>
                             )
                         })}
                     </div>
-                    <Dashboard addItem={this.props.addItem} toggle={this.state.toggle}/>
+                    <Dashboard addItem={this.props.addItem} toggle={this.state.toggle} cartArray={this.state.cartArray}/>
                 </div>
             </div>
         )

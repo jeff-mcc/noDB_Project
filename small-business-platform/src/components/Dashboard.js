@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import ShoppingCart from './ShoppingCart'
 
 class Dashboard extends Component{
     constructor(props){
@@ -94,10 +95,7 @@ class Dashboard extends Component{
                 <h3>Click on an image to Edit or Delete an item</h3>
             </div>
         ) : (
-            <div className="dashboard">
-                <h2 className="dashTitle">Shopping Cart</h2>
-                <h3>Click on an image to add that item to your cart</h3>
-            </div>
+            <ShoppingCart cartArray={this.props.cartArray}/>
         )
     }
 }
