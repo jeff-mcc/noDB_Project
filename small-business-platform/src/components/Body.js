@@ -21,8 +21,8 @@ class Body extends Component{
                 <div className="subheader">
                     {/* <h6>This is the body of the page!</h6> */}
                     <div className="owner-customer">
-                        <button>Owner View</button>
-                        <button>Customer View</button>
+                        <button className="owncust">Owner View</button>
+                        <button className="owncust">Customer View</button>
                     </div>
                 </div>
                 <div className="mainbody">

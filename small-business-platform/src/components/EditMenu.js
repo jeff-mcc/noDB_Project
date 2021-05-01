@@ -36,10 +36,16 @@ class EditMenu extends Component{
     render(){
         return(
             <div className="items editmenu">
+                <p className="iteminfo editText">Quantity: Number to add (+) or delete (-) from inventory</p>
                 <input className="iteminfo iteminput" placeholder="Update Quantity Available" type="number" name="setQuant" onChange={e=>this.handleChange(e.target)}/>
+                <br/>
+                <p className="iteminfo editText">Sale price: Enter 2 decimals</p>
                 <input className="iteminfo iteminput" placeholder="Enter Sale Price" type="number" name="setSale" onChange={e=>this.handleChange(e.target)}/>
+                <br/>
                 <button className="iteminfo" onClick={this.handleEdit}>Save Edit</button>
+                <br/>
                 <button className="iteminfo" onClick={this.handleDelete}>Delete Item</button>
+                <br/>
                 <button className="iteminfo" onClick={this.props.editToggle}>Cancel</button>
             </div>
         )

@@ -1,3 +1,7 @@
+body{
+  background-color:floralwhite;
+}
+
 .App {
   text-align: center;
   min-height: 100%;
@@ -7,7 +11,7 @@
   justify-content: space-between; */
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -20,22 +24,24 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
 header {
-  background-color: pink;
+  background-color:peru;
+  /* border-bottom: sienna 2px solid; */
+  box-shadow: 0px 1px 10px 10px peru;
   width: 100vw;
-  height: 80px;
+  height: 76px;
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   justify-content: space-between;
-  z-index: 100;
+  z-index: 99;
 }
 
 footer {
-  background-color: aqua;
+  background-color:rgb(170, 112, 54);
   width: 100vw;
   height: 80px;
   position: fixed;
@@ -44,7 +50,7 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  z-index: 100;
+  z-index: 99;
 }
 
 .search {
@@ -54,30 +60,45 @@ footer {
 }
 
 .storetitle{
-  margin-left: 20px;
+  margin-left: 60px;
+  font-family:cursive;
 }
 
 .submain{
   /* overflow-x: hidden; */
   position: absolute;
-  top: 80px;
+  top: 86px;
   z-index: 1;
 }
 
 .subheader{
-  background-color: aquamarine;
-  /* width: 100vw; */
+  /* background-color: aquamarine; */
+  /* max-width: 100vw; */
   position:sticky;
-  top: 80px;
-  /* left: 0; */
+  top: 84px;
+  /* right: 0; */
   display: flex;
   justify-content: flex-end;
 }
 
 .owner-customer{
-  margin-right: 30px;
+  margin-right: 25px;
   display: flex;
   align-items: center;
+  z-index: 100;
+}
+
+.owncust{
+  background-color: floralwhite;
+  margin-left: 10px;
+  border: none;
+  color: rgb(104, 36, 36);
+  /* border-bottom: rgb(104, 36, 36) solid 1px; */
+}
+
+.owncust:hover{
+  border-bottom: rgb(104, 36, 36) solid 1px;
+  font-size: 0.85em;
 }
 
 .mainbody{
@@ -90,7 +111,8 @@ footer {
 }
 
 .allitems{
-  max-width: 60vw;
+  max-width: 65vw;
+  min-width: 59vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -101,7 +123,7 @@ footer {
 .items{
   /* flex-wrap: wrap; */
   /* align-content: flex-start; */
-  margin: 10px;
+  margin: 20px;
 }
 
 .editmenu{
@@ -111,7 +133,12 @@ footer {
 }
 
 .dashboard{
+  /* background-color: gainsboro; */
   max-width: 40vw;
+  min-width: 34vw;
+  margin-right: 20px;
+  padding-left: 20px;
+  border-left: rgb(104, 36, 36) 1px dotted;
 }
 
 .image{
@@ -122,6 +149,11 @@ footer {
 .iteminfo{
   width: 200px;
   margin: 0;
+}
+
+.image:hover{
+  width: 220px;
+  max-height: 220px;
 }
 
 .what,.howmuch,.howmany{
@@ -153,8 +185,15 @@ footer {
   height: 200px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .iteminput{
   box-sizing: border-box;
+}
+
+.editText{
+  padding-bottom: 3px;
+  /* padding-top: 3px; */
+  font-size: 0.9em;
 }

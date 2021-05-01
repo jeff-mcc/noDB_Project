@@ -33,7 +33,7 @@ class Dashboard extends Component{
             alert(`Some required entries have been left blank!\n\nEnter all required information before clicking the "Add Item to Inventory" button.`)
         } else{
             if(imageInput===''){
-                imageInput='https://via.placeholder.com/200'
+                imageInput='https://via.placeholder.com/250'
             }
             if(quantInput===''){
                 quantInput=0;
@@ -58,13 +58,13 @@ class Dashboard extends Component{
     render(){
         return(
             <div className="dashboard">
-                <h3>Add a new item to your inventory</h3>
-                <h4>Name: <input name="nameInput" value={this.state.nameInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Name (Required)"/></h4>
-                <h4>Price: <input name="priceInput" type="number" value={this.state.priceInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter a number (Required)"/></h4>
-                <h4>Description: <input name="descInput" value={this.state.descInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Description (Required)"/></h4>
-                <h4>Starting Quantity: <input name="quantInput" type="number" value={this.state.quantInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter a number (Optional)"/></h4>
-                <h4>image URL: <input name="imageInput" value={this.state.imageInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter URL (Optional)"/></h4>
-                <h4>Category 1: <select name="catOneInput" value={this.state.catOneInput} onChange={(e)=>this.handleInput(e.target)}>
+                <h2>Add a new item to your inventory</h2>
+                <h5>Name: <input name="nameInput" value={this.state.nameInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Name (Required)"/></h5>
+                <h5>Price: <input name="priceInput" type="number" value={this.state.priceInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter a number (Required)"/></h5>
+                <h5>Description: <input name="descInput" value={this.state.descInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Item Description (Required)"/></h5>
+                <h5>Starting Quantity: <input name="quantInput" type="number" value={this.state.quantInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter a number (Optional)"/></h5>
+                <h5>image URL: <input name="imageInput" value={this.state.imageInput} onChange={(e)=>this.handleInput(e.target)} placeholder="Enter URL (Optional)"/></h5>
+                <h5>Category 1: <select name="catOneInput" value={this.state.catOneInput} onChange={(e)=>this.handleInput(e.target)}>
                     <option value="">--Pick a Category (Required)--</option>
                     <option value="Food">Food</option>
                     <option value="Drink">Drink</option>
@@ -75,8 +75,8 @@ class Dashboard extends Component{
                     <option value="Bathroom">Bathroom</option>
                     <option value="Outdoors">Outdoors</option>
                     <option value="Electronics">Electronics</option>
-                </select></h4>
-                <h4>Category 2: <select name="catTwoInput" value={this.state.catTwoInput} onChange={(e)=>this.handleInput(e.target)}>
+                </select></h5>
+                <h5>Category 2: <select name="catTwoInput" value={this.state.catTwoInput} onChange={(e)=>this.handleInput(e.target)}>
                     <option value="">--Second Category (Optional)--</option>
                     <option value="Food">Food</option>
                     <option value="Drink">Drink</option>
@@ -87,7 +87,7 @@ class Dashboard extends Component{
                     <option value="Bathroom">Bathroom</option>
                     <option value="Outdoors">Outdoors</option>
                     <option value="Electronics">Electronics</option>
-                </select></h4>
+                </select></h5>
                 <button onClick={this.handleClick}>Add Item to Inventory</button>
                 <br/>
                 <br/>
@@ -100,4 +100,4 @@ class Dashboard extends Component{
 export default Dashboard
 
 
-//
+//https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/NCI_Visuals_Food_Taco.jpg/800px-NCI_Visuals_Food_Taco.jpg
