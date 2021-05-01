@@ -29,7 +29,7 @@ class Body extends Component{
                     <div className="allitems">
                         {this.props.datArray.map(item=>{
                             return(
-                                <Items key={item.id} item= {item}/>
+                                <Items key={item.id} item= {item} deleteItem={this.props.deleteItem} editItem={this.props.editItem}/>
                             )
                         })}
                     </div>

@@ -33,7 +33,7 @@ class App extends Component{
   deleteItem = (id,quant) => {
     quant===0 ? axios.delete(`/smallbusiness/store/${id}`)
       .then(res=>this.setState({datArray: res.data}))
-      .catch(err=>console.log(err)) : alert("The item can not be deleted because of remaining inventory");
+      .catch(err=>console.log(err)) : alert("The item can not be deleted because there is remaining inventory!");
   }
 
   editItem = (id,quantity,salePrice) => {
@@ -46,7 +46,7 @@ class App extends Component{
     return (
       <div className="App">
         <Header />
-        <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem}/>
+        <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem} editItem={this.editItem}/>
         <Footer />
       </div>
     )

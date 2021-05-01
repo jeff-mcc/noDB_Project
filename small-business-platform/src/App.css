@@ -94,11 +94,15 @@ footer {
 }
 
 .items{
-  /* display: flex;
-  flex-direction: column; */
   /* flex-wrap: wrap; */
   /* align-content: flex-start; */
   margin: 10px;
+}
+
+.editmenu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dashboard{
@@ -129,6 +133,14 @@ footer {
   border-top: black 1px solid;
   border-bottom: black 1px solid;
   font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+}
+
+.saleprice{
+  margin: 0;
+  color: red;
+  font-size: 1em;
 }
 
 .imageholder{
@@ -136,4 +148,8 @@ footer {
   height: 200px;
   display: flex;
   align-items: center;
+}
+
+.iteminput{
+  box-sizing: border-box;
 }
