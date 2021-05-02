@@ -195,6 +195,11 @@ h5{
   justify-content: center;
 }
 
+.cats{
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
 .saleprice{
   margin: 0;
   color: red;
@@ -221,19 +226,40 @@ h5{
 
 .cartImage{
   height: 40px;
+  width: 40px;
 }
 
 .cartShow{
   display:flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .cartElement{
-  margin: 0 5px;
+  margin: 0 8px;
 }
 
 .subtotal{
   font-size: 0.9em;
+}
+
+.orderCalc{
+  margin: 5px 10px;
+}
+
+.itemName{
+  /* display: flex; */
+  text-align: left;
+  margin: 10px 0 3px 7px;
+}
+
+.cartArrange{
+  padding-bottom: 5px;
+  border-bottom: 1px solid black;
+}
+
+.aligned{
+  width: 70px;
+  text-align: right;
 }

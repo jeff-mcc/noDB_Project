@@ -28,7 +28,12 @@ class EditMenu extends Component{
         if (quant<0){
             alert('Item quantity can not be set to a value less than zero!')
         } else{
-            this.props.editItem(this.props.item.id,quant,this.state.setSale)
+            // console.log(this.state.setSale)
+            // if (this.props.item.sale===true && this.state.setSale===undefined){
+            //     this.props.editItem(this.props.item.id,quant,this.props.item.salePrice)
+            // } else{
+                this.props.editItem(this.props.item.id,quant,this.state.setSale)
+            // }
             this.props.editToggle()
         }
     }

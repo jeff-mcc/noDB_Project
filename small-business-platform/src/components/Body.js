@@ -25,6 +25,7 @@ class Body extends Component{
             ...obj,
             purchased: 1
         }
+        obj.quantity -= 1;
         let index = this.state.cartArray.findIndex(e=>e.id===obj.id)
         if (index===-1){
             const newObj = [...this.state.cartArray,obj]
@@ -37,6 +38,10 @@ class Body extends Component{
             this.setState({cartArray: newObj})
             // console.log(newObj)
         }
+    }
+
+    updateCart = (cart) => {
+        this.setState({cartArray: cart})
     }
 
     render(){
@@ -57,7 +62,7 @@ class Body extends Component{
                             )
                         })}
                     </div>
-                    <Dashboard addItem={this.props.addItem} toggle={this.state.toggle} cartArray={this.state.cartArray}/>
+                    <Dashboard addItem={this.props.addItem} toggle={this.state.toggle} cartArray={this.state.cartArray} updateCart={this.updateCart}/>
                 </div>
             </div>
         )

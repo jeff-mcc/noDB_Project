@@ -25,6 +25,8 @@ class Items extends Component{
         const toggleAvail = () => {
             if (this.props.toggle===true){
                 return (<p className="iteminfo howmany">Available: {this.props.item.quantity}</p>)
+            } else{
+                return (<p className="iteminfo cats">Categories: {this.props.item.categories.cat1} {this.props.item.categories.cat2}</p>)
             }
         }
         const owncustEdit = () => {
