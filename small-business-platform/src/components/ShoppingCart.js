@@ -6,8 +6,8 @@ class ShoppingCart extends Component{
         this.state = {}
     }
 
-    handleClickPlus = (id) => {
-        const index = this.props.cartArray.findIndex(e=>e.id===id)
+    handleClickPlus = (item) => {
+        const index = this.props.cartArray.findIndex(e=>e.id===item.id)
         const newPurchased = this.props.cartArray[index].purchased+1;
         const availToBuy = this.props.cartArray[index].quantity-1;
         if (availToBuy>=0){
@@ -15,13 +15,18 @@ class ShoppingCart extends Component{
             newCart[index].purchased = newPurchased;
             newCart[index].quantity = availToBuy;
             this.props.updateCart(newCart)
+            if (item.sale===true){
+                this.props.editItem(item.id,availToBuy,item.salePrice)
+            } else{
+                this.props.editItem(item.id,availToBuy,0)
+            }
         } else{
             alert("No remaining inventory is available to purchase")
         }
     }
 
-    handleClickMinus = (id) => {
-        const index = this.props.cartArray.findIndex(e=>e.id===id)
+    handleClickMinus = (item) => {
+        const index = this.props.cartArray.findIndex(e=>e.id===item.id)
         const newPurchased = this.props.cartArray[index].purchased-1;
         const availToBuy = this.props.cartArray[index].quantity+1;
         if (newPurchased>=0){
@@ -32,6 +37,11 @@ class ShoppingCart extends Component{
                 newCart.splice(index,1)
             }
             this.props.updateCart(newCart)
+            if (item.sale===true){
+                this.props.editItem(item.id,availToBuy,item.salePrice)
+            } else{
+                this.props.editItem(item.id,availToBuy,0)
+            }
         }
     }
     
@@ -60,9 +70,9 @@ class ShoppingCart extends Component{
                                     <h5 className="itemName">{item.name}</h5>
                                     <div className="cartShow">
                                         <img className="cartImage cartElement" src={item.imageURL} alt={item.name}/>
-                                        <button className="cartElement" onClick={()=>this.handleClickMinus(item.id)}>-</button>
+                                        <button className="cartElement" onClick={()=>this.handleClickMinus(item)}>-</button>
                                         <p className="cartElement subtotal">{item.purchased}</p>
-                                        <button className="cartElement" onClick={()=>this.handleClickPlus(item.id)}>+</button>
+                                        <button className="cartElement" onClick={()=>this.handleClickPlus(item)}>+</button>
                                         <p className="cartElement subtotal aligned">${price()}</p>
                                     </div>
                                 </div>

@@ -95,7 +95,7 @@ class Dashboard extends Component{
                 <h3>Click on an image to Edit or Delete an item</h3>
             </div>
         ) : (
-            <ShoppingCart cartArray={this.props.cartArray} updateCart={this.props.updateCart}/>
+            <ShoppingCart cartArray={this.props.cartArray} updateCart={this.props.updateCart} editItem={this.props.editItem}/>
         )
     }
 }

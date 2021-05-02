@@ -32,9 +32,10 @@ class Body extends Component{
             this.setState({cartArray: newObj})
             // console.log(newObj)
         } else{
-            obj.purchased += this.state.cartArray[index].purchased
+            obj.purchased += this.state.cartArray[index].purchased 
             let newObj = [...this.state.cartArray]
             newObj[index].purchased = obj.purchased
+            newObj[index].quantity = obj.quantity
             this.setState({cartArray: newObj})
             // console.log(newObj)
         }
@@ -62,7 +63,7 @@ class Body extends Component{
                             )
                         })}
                     </div>
-                    <Dashboard addItem={this.props.addItem} toggle={this.state.toggle} cartArray={this.state.cartArray} updateCart={this.updateCart}/>
+                    <Dashboard addItem={this.props.addItem} toggle={this.state.toggle} cartArray={this.state.cartArray} updateCart={this.updateCart} editItem={this.props.editItem}/>
                 </div>
             </div>
         )
