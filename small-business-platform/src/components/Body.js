@@ -14,10 +14,12 @@ class Body extends Component{
 
     ownerToggle = () => {
         this.setState({toggle: true})
+        this.props.updateToggle(true)
     }
 
     customerToggle = () => {
         this.setState({toggle: false})
+        this.props.updateToggle(false)
     }
 
     addToCart = (obj) => {

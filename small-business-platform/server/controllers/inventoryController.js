@@ -82,7 +82,7 @@ let inventory = [
         available: true,
         sale: false,
         salePrice: null,
-        description: "Do you hate the outdoors, but your family loves it? Well, suffer in secret no longer! Just bring this baby along for the ride (don't forget your rabbit ears!) and forget that you even left the house while viewing this exquisite 13 inch screen in full color!",
+        description: "Do you hate the outdoors, but your family loves it? Well, suffer in secret no longer! Just bring this baby along for the ride (don't forget your rabbit ears and D batteries!) and forget that you even left the house while viewing this exquisite 11 inch screen in full color!",
         imageURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Mini_Star_416-8834.jpg/220px-Mini_Star_416-8834.jpg",
         categories: {
             cat1: "Electronics",
@@ -178,7 +178,7 @@ module.exports = {
         let {id,name} = req.params; //,name
         const fixName = name.replace(/\+/g," ");
         const idx = busInfo.findIndex(e=>{
-            console.log(e.name,fixName)
+            // console.log(e.name,fixName)
             return e.id=== +id && e.name===fixName //e.id=== +id && 
         })
         // console.log(idx)

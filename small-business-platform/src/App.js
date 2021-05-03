@@ -11,7 +11,8 @@ class App extends Component{
     this.state = {
       searchInput: '',
       datArray: [],
-      busObj: {}
+      busObj: {},
+      toggle: true
     }
   }
 
@@ -55,13 +56,25 @@ class App extends Component{
       .catch(err=>console.log(err))
   }
 
+  updateToggle = (bool) => {
+    this.setState({toggle: bool})
+  }
+
+  editBus = (obj) => {
+    const objName = obj.name.replace(/\s/g,"+")
+    const {address,hours1,hours2,hours3} = obj;
+    axios.put(`/smallbusiness/store/${obj.id}/${objName}`,{address,hours1,hours2,hours3})
+      .then(res=>this.setState({busObj: res.data}))
+      .catch(err=>console.log(err))
+  }
+
   render(){
     // console.log(this.state.datArray)
     return (
       <div className="App">
         <Header searchItem={this.searchItem}/>
-        <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem} editItem={this.editItem}/>
-        <Footer busObj={this.state.busObj}/>
+        <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem} editItem={this.editItem} updateToggle={this.updateToggle}/>
+        <Footer busObj={this.state.busObj} toggle={this.state.toggle} editBus={this.editBus}/>
       </div>
     )
   }
