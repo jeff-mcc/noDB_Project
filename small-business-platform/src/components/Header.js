@@ -1,4 +1,5 @@
 import {Component} from 'react'
+// import SearchIcon from '/../../react-icons/lib/md/search'
 
 class Header extends Component{
     constructor(props){
@@ -29,14 +30,6 @@ class Header extends Component{
     }
 
     render(){
-
-        // const autoSearch = () =>{
-        //     let box = document.getElementById("check")
-        //     box.value = !this.props.toggle;
-        //     this.setState({slideInput: !this.props.toggle})
-        //     // this.props.searchItem(this.state.searchInput,this.state.slideInput)
-        // }
-
         return (
             <header>
                 <h1 className="storetitle">S m a l l &nbsp; S t o r e</h1>
@@ -47,7 +40,9 @@ class Header extends Component{
                         <span className="slider"></span>
                         </label>
                         <input placeholder="Enter a category or name" onChange={e=>this.handleInput(e.target.value)}/>
-                        <button onClick={this.handleClick}>Search</button>
+                        {/* <SearchIcon onClick={this.handleClick}/> */}
+                        {/* <button onClick={this.handleClick}>Search</button> */}
+                        <img className="searchButton" src="http://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png" alt="search" onClick={this.handleClick}/>
                     </div>
                     <p className="toggleText">Toggle on/off to search based upon item availability</p>
                 </div>
