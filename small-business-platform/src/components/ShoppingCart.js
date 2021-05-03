@@ -44,6 +44,35 @@ class ShoppingCart extends Component{
             }
         }
     }
+
+    handleCancel = (cart) => {
+        if (cart.length!==0){
+            for(let i = 0; i<cart.length; i++){
+                let newQuant = cart[i].quantity + cart[i].purchased;
+                // console.log(newQuant)
+                if (cart[i].sale===true){
+                    this.props.editItem(cart[i].id,newQuant,cart[i].salePrice)
+                } else{
+                    this.props.editItem(cart[i].id,newQuant,0)
+                }
+            }
+            const newCart = [];
+            this.props.updateCart(newCart)
+        }
+    }
+
+    handleCheckOut = (cart,total) => {
+        if (cart.length!==0){
+            let newStr = 'Thank you for your purchase of:\n';
+            for(let i = 0; i<cart.length; i++){
+                newStr = `${newStr}${cart[i].name} (${cart[i].purchased})\n` 
+            }
+            newStr = `${newStr}Your total was: $${total}`
+            const newCart = [];
+            this.props.updateCart(newCart)
+            alert(newStr)
+        }
+    }
     
     render(){
         const showCart = (cart) =>{
@@ -117,8 +146,8 @@ class ShoppingCart extends Component{
                 <h4 className="orderCalc">Tax: ${tax}</h4>
                 <h2 className="orderCalc">Total: ${total}</h2>
                 <div>
-                    <button>Cancel</button>
-                    <button>Check Out</button>
+                    <button onClick={()=>this.handleCancel(this.props.cartArray)}>Cancel</button>
+                    <button onClick={()=>this.handleCheckOut(this.props.cartArray,total)}>Check Out</button>
                 </div>
             </div>
         )
