@@ -3,7 +3,7 @@ let inventory = [
         id: 1,
         name: "Fuzzy Bear's toilet paper: 4 pack",
         price: 4.99,
-        quantity: 50,
+        quantity: 0,
         available: true,
         sale: false,
         salePrice: null,
@@ -200,19 +200,30 @@ module.exports = {
         res.status(200).send(upBus)
     },
     getItems: (req,res)=>{
-        let {search} = req.query;
+        let {search,slide} = req.query;
+        const slideBool = (slide === 'true');
         let filtInventory = inventory.filter(e=>{
             const name = e.name.toLowerCase();
             const cat1 = e.categories.cat1.toLowerCase();
             const cat2 = e.categories.cat2.toLowerCase();
-            if (search===undefined){
+            const quant = e.quantity;
+            if (search===undefined && slideBool===false){
                 return true
-            } else{
+            } else if(search!==undefined && slideBool===false){
                 search = search.toLowerCase();
                 if (name.includes(search) || cat1.includes(search) || cat2.includes(search)){
                     return true
                 }
-            } 
+            } else if(search!==undefined && slideBool===true){
+                search = search.toLowerCase();
+                if ((name.includes(search) || cat1.includes(search) || cat2.includes(search)) && quant>0){
+                    return true
+                }
+            } else if(search===undefined && slideBool===true){
+                if(quant>0){
+                    return true
+                }
+            }
         })
         res.status(200).send(filtInventory)
     },

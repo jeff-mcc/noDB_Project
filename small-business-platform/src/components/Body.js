@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Items from './Items'
 import Dashboard from './Dashboard'
+import Header from './Header'
 
 class Body extends Component{
     constructor(props){
@@ -8,7 +9,8 @@ class Body extends Component{
         this.state = {
             toggle: true,
             datArray: [],
-            cartArray: []
+            cartArray: [],
+            searchInput: ''
         }
     }
 
@@ -20,6 +22,10 @@ class Body extends Component{
     customerToggle = () => {
         this.setState({toggle: false})
         this.props.updateToggle(false)
+        let box = document.getElementById("check")
+        box.value = true;
+        document.getElementById("check").checked = true
+        this.props.searchItem(this.state.searchInput,box.value)
     }
 
     addToCart = (obj) => {
@@ -47,25 +53,32 @@ class Body extends Component{
         this.setState({cartArray: cart})
     }
 
+    setSearch = (input) => {
+        this.setState({searchInput: input})
+    }
+
     render(){
         return(
-            <div className="submain">
-                <div className="subheader">
-                    {/* <h6>This is the body of the page!</h6> */}
-                    <div className="owner-customer">
-                        <button className="owncust" onClick={this.ownerToggle}>Owner View</button>
-                        <button className="owncust" onClick={this.customerToggle}>Customer View</button>
+            <div>
+                <Header searchItem={this.props.searchItem} setSearch={this.setSearch}/>
+                <div className="submain">
+                    <div className="subheader">
+                        {/* <h6>This is the body of the page!</h6> */}
+                        <div className="owner-customer">
+                            <button className="owncust" onClick={this.ownerToggle}>Owner View</button>
+                            <button className="owncust" onClick={this.customerToggle}>Customer View</button>
+                        </div>
                     </div>
-                </div>
-                <div className="mainbody">
-                    <div className="allitems">
-                        {this.props.datArray.map(item=>{
-                            return(
-                                <Items key={item.id} item= {item} deleteItem={this.props.deleteItem} editItem={this.props.editItem} toggle={this.state.toggle} addToCart={this.addToCart}/>
-                            )
-                        })}
+                    <div className="mainbody">
+                        <div className="allitems">
+                            {this.props.datArray.map(item=>{
+                                return(
+                                    <Items key={item.id} item= {item} deleteItem={this.props.deleteItem} editItem={this.props.editItem} toggle={this.state.toggle} addToCart={this.addToCart}/>
+                                )
+                            })}
+                        </div>
+                        <Dashboard addItem={this.props.addItem} toggle={this.state.toggle} cartArray={this.state.cartArray} updateCart={this.updateCart} editItem={this.props.editItem}/>
                     </div>
-                    <Dashboard addItem={this.props.addItem} toggle={this.state.toggle} cartArray={this.state.cartArray} updateCart={this.updateCart} editItem={this.props.editItem}/>
                 </div>
             </div>
         )

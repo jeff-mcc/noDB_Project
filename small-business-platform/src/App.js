@@ -50,8 +50,8 @@ class App extends Component{
       .catch(err=>console.log(err))
   }
 
-  searchItem = (search) => {
-    axios.get(`/smallbusiness/store?search=${search}`)
+  searchItem = (search,slide) => {
+    axios.get(`/smallbusiness/store?search=${search}&slide=${slide}`)
       .then(res=>this.setState({datArray: res.data}))
       .catch(err=>console.log(err))
   }
@@ -72,8 +72,8 @@ class App extends Component{
     // console.log(this.state.datArray)
     return (
       <div className="App">
-        <Header searchItem={this.searchItem}/>
-        <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem} editItem={this.editItem} updateToggle={this.updateToggle}/>
+        {/* <Header searchItem={this.searchItem} toggle={this.state.toggle}/> */}
+        <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem} editItem={this.editItem} updateToggle={this.updateToggle} searchItem={this.searchItem}/>
         <Footer busObj={this.state.busObj} toggle={this.state.toggle} editBus={this.editBus}/>
       </div>
     )
