@@ -151,9 +151,54 @@ let inventory = [
     }
 ];
 
+let busInfo = [
+    {
+        id: 1,
+        name: "Bill's Hidden Treasures",
+        address: "123 East 800 North, Anywhere, UT 84000",
+        hours1: "9am-8pm Mon-Fri",
+        hours2: "10am-9pm Sat",
+        hours3: "CLOSED Sunday"
+    },
+    {
+        id: 2,
+        name: "Sally's Hidden Treasures",
+        address: "456 West 900 South, Nowhere, UT 84999",
+        hours1: "8am-6pm Mon-Sat",
+        hours2: "CLOSED Sunday",
+        hours3: ""
+    }
+]
+
+// let busId = 3;
 let id = 11;
 
 module.exports = {
+    getBus: (req,res)=>{
+        let {id,name} = req.params; //,name
+        const fixName = name.replace(/\+/g," ");
+        const idx = busInfo.findIndex(e=>{
+            console.log(e.name,fixName)
+            return e.id=== +id && e.name===fixName //e.id=== +id && 
+        })
+        // console.log(idx)
+        const findBus = busInfo[idx];
+        res.status(200).send(findBus) 
+    },
+    editBus: (req,res)=>{
+        const {id,name} = req.params;
+        const {address,hours1,hours2,hours3} = req.body;
+        const fixName = name.replace(/\+/g," ");
+        const idx = busInfo.findIndex(e=>{
+            return e.id=== +id && e.name===fixName
+        })
+        busInfo[idx].address = address;
+        busInfo[idx].hours1 = hours1;
+        busInfo[idx].hours2 = hours2;
+        busInfo[idx].hours3 = hours3;
+        const upBus = busInfo[idx];
+        res.status(200).send(upBus)
+    },
     getItems: (req,res)=>{
         let {search} = req.query;
         let filtInventory = inventory.filter(e=>{

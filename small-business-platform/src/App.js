@@ -10,7 +10,8 @@ class App extends Component{
     super()
     this.state = {
       searchInput: '',
-      datArray: []
+      datArray: [],
+      busObj: {}
     }
   }
 
@@ -19,6 +20,12 @@ class App extends Component{
       .then(res=>{
         // console.log(res)
         this.setState({datArray: res.data})
+      })
+      .catch(err=>console.log(err))
+    axios.get("/smallbusiness/store/1/Bill's+Hidden+Treasures")
+      .then(res=>{
+        // console.log(res.data)
+        this.setState({busObj: res.data})
       })
       .catch(err=>console.log(err))
   }
@@ -54,7 +61,7 @@ class App extends Component{
       <div className="App">
         <Header searchItem={this.searchItem}/>
         <Body datArray={this.state.datArray} addItem={this.addItem} deleteItem={this.deleteItem} editItem={this.editItem}/>
-        <Footer />
+        <Footer busObj={this.state.busObj}/>
       </div>
     )
   }
