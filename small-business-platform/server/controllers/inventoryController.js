@@ -272,6 +272,12 @@ module.exports = {
             datArray[index2].salePrice = salePrice;
             datArray[index2].sale = salePrice===null ? false : datArray[index2].price<salePrice ? false : true;
         }
+        datArray.forEach(e=>{
+            const indx = inventory.findIndex(el=>el.id===e.id)
+            if (inventory[indx].quantity!==e.quantity){
+                e.quantity = inventory[indx].quantity;
+            }
+        })
         
         res.status(200).send(datArray)
     },
