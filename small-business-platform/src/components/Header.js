@@ -32,7 +32,14 @@ class Header extends Component{
     render(){
         return (
             <header>
-                <h1 className="storetitle">S m a l l &nbsp; S t o r e</h1>
+                <div className="titleHeader">
+                    <h1 className="storetitle">S m a l l &nbsp; S t o r e</h1>
+                    <svg>
+                        <polygon className="poly" points="0,0 0,80 345,80 375,0"/>
+                    </svg>
+                    {/* <div className="diagonal"></div> */}
+                    {/* <div className="diagonal diagonal2"></div> */}
+                </div>
                 <div className="secondaryHeader">
                     <div className="search">
                         <label className="switch">

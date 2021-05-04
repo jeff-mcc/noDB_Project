@@ -147,8 +147,8 @@ class ShoppingCart extends Component{
                 <h4 className="orderCalc">Tax: ${tax}</h4>
                 <h2 className="orderCalc">Total: ${total}</h2>
                 <div>
-                    <button onClick={()=>this.handleCancel(this.props.cartArray)}>Cancel</button>
-                    <button onClick={()=>this.handleCheckOut(this.props.cartArray,total)}>Check Out</button>
+                    <button className="footedit cartedit" onClick={()=>this.handleCancel(this.props.cartArray)}>Cancel</button>
+                    <button className="footedit cartedit" onClick={()=>this.handleCheckOut(this.props.cartArray,total)}>Check Out</button>
                 </div>
             </div>
         )

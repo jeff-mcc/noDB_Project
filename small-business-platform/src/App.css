@@ -11,27 +11,12 @@ body{
   justify-content: space-between; */
 }
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-} */
-
 header {
   background-color:peru;
-  /* border-bottom: sienna 2px solid; */
-  box-shadow: 0px 1px 10px 10px peru;
+  border-bottom: rgb(104, 36, 36) 1px solid;
+  box-shadow: 0px 1px 10px 5px peru;
   width: 100vw;
-  height: 76px;
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
@@ -65,23 +50,29 @@ footer {
 .storetitle{
   margin-left: 60px;
   font-family:cursive;
+  z-index: 100;
+  color: white;
 }
 
 .submain{
   /* overflow-x: hidden; */
   position: absolute;
-  top: 86px;
+  top: 100px;
   z-index: 1;
 }
 
 .subheader{
-  /* background-color: aquamarine; */
-  /* max-width: 100vw; */
-  position:sticky;
-  top: 84px;
-  /* right: 0; */
+  background-color: floralwhite;
+  width: 100vw;
+  position:fixed;
+  top: 80px;
+  right: 0;
+  padding-top: 4px;
   display: flex;
   justify-content: flex-end;
+  border-bottom: rgb(104, 36, 36) 1px solid;
+  box-shadow: 0 1px 2px peru;
+  z-index: 100;
 }
 
 .owner-customer{
@@ -89,6 +80,7 @@ footer {
   display: flex;
   align-items: center;
   z-index: 100;
+  padding-bottom: 3px;
 }
 
 .owncust{
@@ -158,6 +150,7 @@ h5{
 
 #additem{
   margin-right: 35px;
+  border-radius: 0;
 }
 
 .dashTitle{
@@ -167,11 +160,6 @@ h5{
 .image{
   /* width: 200px; */
   max-height: 200px;
-}
-
-.iteminfo{
-  width: 200px;
-  margin: 0;
 }
 
 .image:hover{
@@ -335,4 +323,75 @@ h5{
 .searchButton{
   height: 20px;
   margin-left: -20px;
+}
+
+.footedit{
+  background-color: #FDEBD0;
+  border-radius: 10%;
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 3px 7px 2px;
+  border: 1px solid rgb(104, 36, 36);
+  box-shadow: 1px 1px 1px 0px rgb(104,36,36);
+}
+
+/* .cartedit{
+  border-radius: 10%;
+} */
+
+.footedit:active{
+  background-color: peru;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
+}
+
+.iteminfo{
+  width: 200px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.footText{
+  font-size: 1.1em;
+}
+
+/* .diagonal{
+  height: 108%;
+  width: 10px;
+  margin-left: 60px;
+  border-left: rgb(104,36,36) 2px solid;
+  box-shadow: inset 1px 0 1px tan;
+  box-sizing: border-box;
+  transform: rotate(20deg);
+  transform-origin: 0% 0%;
+} */
+
+/* .diagonal2{ */
+  /* margin-left: 20px; */
+  /* box-shadow: inset 1px 0 1px tan; */
+/* } */
+
+.titleHeader{
+  display: flex;
+  flex-direction: row;
+  /* padding-right: 30px; */
+  width: 330px;
+}
+
+svg{
+  /* background-color: rgb(104,36,36); */
+  position:absolute;
+  top:0;
+  width:375px;
+  height: 80px;
+  z-index: 1;
+  /* box-shadow: 1px 0 1px tan; */
+}
+
+.poly{
+  /* background-color: tan; */
+  fill: rgb(104,36,36);
+  /* stroke-right: purple; */
 }

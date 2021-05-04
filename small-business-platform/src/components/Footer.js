@@ -59,27 +59,27 @@ class Footer extends Component{
                 return this.state.editToggle ? (
                     <footer>
                         <div>
-                            <button onClick={()=>this.handleToggle()}>Cancel</button><br/>
-                            <button onClick={()=>this.handleSave()}>Save</button>
+                            <button className="footedit" onClick={()=>this.handleToggle()}>Cancel</button><br/>
+                            <button className="footedit" onClick={()=>this.handleSave()}>Save</button>
                         </div>
-                        <p>{this.props.busObj.name}</p>
+                        <p className="footText">{this.props.busObj.name}</p>
                         <input placeholder="Update Address Here" name="addressIn" onChange={e=>this.handleInput(e.target)}/>
                         <div><input placeholder="Update Hours of Operation" name="hoursIn1" onChange={e=>this.handleInput(e.target)}/><br/><input placeholder="Update line 2 (Optional)" name="hoursIn2" onChange={e=>this.handleInput(e.target)}/><br/><input placeholder="Update line 3 (Optional)" name="hoursIn3" onChange={e=>this.handleInput(e.target)}/></div>
                     </footer>
                 ) : (
                     <footer>
-                        <button onClick={()=>this.handleToggle()}>EDIT</button>
-                        <p>{this.props.busObj.name}</p>
-                        <p>{this.props.busObj.address}</p>
-                        <p>{this.props.busObj.hours1}<br/>{this.props.busObj.hours2}<br/>{this.props.busObj.hours3}</p>
+                        <button className="footedit" onClick={()=>this.handleToggle()}>EDIT</button>
+                        <p className="footText">{this.props.busObj.name}</p>
+                        <p className="footText">{this.props.busObj.address}</p>
+                        <p className="footText">{this.props.busObj.hours1}<br/>{this.props.busObj.hours2}<br/>{this.props.busObj.hours3}</p>
                     </footer>
                 )
             } else{
                 return(
                     <footer>
-                        <p>{this.props.busObj.name}</p>
-                        <p>{this.props.busObj.address}</p>
-                        <p>{this.props.busObj.hours1}<br/>{this.props.busObj.hours2}<br/>{this.props.busObj.hours3}</p>
+                        <p className="footText">{this.props.busObj.name}</p>
+                        <p className="footText">{this.props.busObj.address}</p>
+                        <p className="footText">{this.props.busObj.hours1}<br/>{this.props.busObj.hours2}<br/>{this.props.busObj.hours3}</p>
                     </footer>
                 )
             }

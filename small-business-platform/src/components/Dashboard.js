@@ -89,7 +89,7 @@ class Dashboard extends Component{
                     <option value="Outdoors">Outdoors</option>
                     <option value="Electronics">Electronics</option>
                 </select></h5>
-                <button id="additem" onClick={this.handleClick}>Add Item to Inventory</button>
+                <button id="additem" className="footedit" onClick={this.handleClick}>Add Item to Inventory</button>
                 <br/>
                 {/* <br/> */}
                 <h3>Click on an image to Edit or Delete an item</h3>

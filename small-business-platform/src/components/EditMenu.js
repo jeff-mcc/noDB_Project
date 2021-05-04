@@ -47,11 +47,11 @@ class EditMenu extends Component{
                 <p className="iteminfo editText">Sale price: Enter 2 decimals</p>
                 <input className="iteminfo iteminput" placeholder="Enter Sale Price" type="number" name="setSale" onChange={e=>this.handleChange(e.target)}/>
                 <br/>
-                <button className="iteminfo" onClick={this.handleEdit}>Save Edit</button>
+                <button className="iteminfo footedit" onClick={this.handleEdit}>Save Edit</button>
                 <br/>
-                <button className="iteminfo" onClick={this.handleDelete}>Delete Item</button>
+                <button className="iteminfo footedit" onClick={this.handleDelete}>Delete Item</button>
                 <br/>
-                <button className="iteminfo" onClick={this.props.editToggle}>Cancel</button>
+                <button className="iteminfo footedit" onClick={this.props.editToggle}>Cancel</button>
             </div>
         )
     }
