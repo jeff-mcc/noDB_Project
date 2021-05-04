@@ -26,6 +26,7 @@ class ShoppingCart extends Component{
     }
 
     handleClickMinus = (item) => {
+        // console.log(item)
         const index = this.props.cartArray.findIndex(e=>e.id===item.id)
         const newPurchased = this.props.cartArray[index].purchased-1;
         const availToBuy = this.props.cartArray[index].quantity+1;

@@ -228,7 +228,7 @@ module.exports = {
         res.status(200).send(filtInventory)
     },
     addItem: (req,res)=>{
-        const {name,price,quantity,description,imageURL,categories} = req.body;
+        let {name,price,quantity,description,imageURL,categories,datArray} = req.body;
         const avail = quantity>0 ? true : false;
         const newItem = {
             id,
@@ -244,7 +244,8 @@ module.exports = {
         }
         id++
         inventory.push(newItem)
-        res.status(200).send(inventory)
+        datArray.push(newItem)
+        res.status(200).send(datArray)
     },
     deleteItem: (req,res)=>{
         const {id} = req.params;
@@ -252,7 +253,7 @@ module.exports = {
         res.status(200).send(inventory)
     },
     editItem: (req,res)=>{
-        let {quantity,salePrice} = req.body;
+        let {quantity,salePrice,datArray} = req.body;
         let idx = +req.params.id;
         const avail = quantity>0 ? true : false;
         salePrice = salePrice>0 ? salePrice : null;
@@ -261,7 +262,17 @@ module.exports = {
         inventory[index].quantity = quantity;
         inventory[index].salePrice = salePrice;
         inventory[index].sale = salePrice===null ? false : inventory[index].price<salePrice ? false : true;
-        res.status(200).send(inventory)
+        const index2 = datArray.findIndex(e=>e.id===idx);
+        if (index2===-1){
+            datArray.push(inventory[index])
+        } else{
+            datArray[index2].available = avail;
+            datArray[index2].quantity = quantity;
+            datArray[index2].salePrice = salePrice;
+            datArray[index2].sale = salePrice===null ? false : datArray[index2].price<salePrice ? false : true;
+        }
+        
+        res.status(200).send(datArray)
     },
     // getSearch: (req,res)=>{
     //     console.log(req.query.name)

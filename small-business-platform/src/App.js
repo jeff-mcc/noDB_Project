@@ -33,7 +33,8 @@ class App extends Component{
 
   addItem = (datObj) => {
     const {name,price,description,quantity,imageURL,categories} = datObj;
-    axios.post('/smallbusiness/store',{name,price,quantity,description,imageURL,categories})
+    const datArray = this.state.datArray;
+    axios.post('/smallbusiness/store',{name,price,quantity,description,imageURL,categories,datArray})
       .then(res=>this.setState({datArray: res.data}))
       .catch(err=>console.log(err))
   }
@@ -45,7 +46,8 @@ class App extends Component{
   }
 
   editItem = (id,quantity,salePrice) => {
-    axios.put(`/smallbusiness/store/${id}`,{quantity,salePrice})
+    const datArray = this.state.datArray;
+    axios.put(`/smallbusiness/store/${id}`,{quantity,salePrice,datArray})
       .then(res=>this.setState({datArray: res.data}))
       .catch(err=>console.log(err))
   }
