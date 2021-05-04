@@ -255,6 +255,7 @@ module.exports = {
     editItem: (req,res)=>{
         let {quantity,salePrice,datArray} = req.body;
         let idx = +req.params.id;
+        // console.log(datArray)
         const avail = quantity>0 ? true : false;
         salePrice = salePrice>0 ? salePrice : null;
         const index = inventory.findIndex(e=>e.id===idx);

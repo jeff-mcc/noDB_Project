@@ -50,7 +50,7 @@ class ShoppingCart extends Component{
         if (cart.length!==0){
             for(let i = 0; i<cart.length; i++){
                 let newQuant = cart[i].quantity + cart[i].purchased;
-                // console.log(newQuant)
+                // console.log(newQuant,cart[i].id)
                 if (cart[i].sale===true){
                     this.props.editItem(cart[i].id,newQuant,cart[i].salePrice)
                 } else{

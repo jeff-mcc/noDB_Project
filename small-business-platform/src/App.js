@@ -46,10 +46,12 @@ class App extends Component{
   }
 
   editItem = (id,quantity,salePrice) => {
-    const datArray = this.state.datArray;
+    // console.log(id,quantity)
+    let datArray = this.state.datArray;
     axios.put(`/smallbusiness/store/${id}`,{quantity,salePrice,datArray})
       .then(res=>this.setState({datArray: res.data}))
       .catch(err=>console.log(err))
+    console.log(this.state.datArray)
   }
 
   searchItem = (search,slide) => {

@@ -49,7 +49,7 @@ class Header extends Component{
                         <input placeholder="Enter a category or name" onChange={e=>this.handleInput(e.target.value)}/>
                         {/* <SearchIcon onClick={this.handleClick}/> */}
                         {/* <button onClick={this.handleClick}>Search</button> */}
-                        <img className="searchButton" src="http://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png" alt="search" onClick={this.handleClick}/>
+                        <img className="searchButton" src="https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png" alt="search" onClick={this.handleClick}/>
                     </div>
                     <p className="toggleText">Toggle on/off to search based upon item availability</p>
                 </div>
@@ -78,3 +78,6 @@ export default Header
 //     {/* {autoSearch()} */}
 // </header>
 // )
+
+//header search icon
+//http://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png
